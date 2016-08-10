@@ -11,7 +11,7 @@ cd %AUTH_AGENT_HOME%
 for /F %%v in ('echo %1^|findstr "^start$ ^stop$ ^restart$ ^status"') do set COMMAND=%%v
 if "%COMMAND%" == "" (
     echo Usage: %0 { start : stop : restart : status }
-    exit /b 1
+    set COMMAND=start
 )
 call :%COMMAND%
 goto :eof
